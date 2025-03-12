@@ -1,0 +1,31 @@
+[package]
+name = "rust_supervisor"
+version = "0.1.0"
+edition = "2024"
+description = "An Erlang-inspired process supervision library for Rust"
+license = "MIT"
+repository = "https://github.com/roquess/rust_supervisor"
+readme = "README.md"
+keywords = ["process", "supervisor", "fault-tolerance", "erlang"]
+categories = ["concurrency", "os"]
+
+[dependencies]
+log = "0.4"
+thiserror = "1.0"
+
+[dev-dependencies]
+env_logger = "0.10"
+criterion = "0.5"
+
+[features]
+default = []
+async = ["tokio"]
+
+[dependencies.tokio]
+version = "1.30"
+features = ["rt", "rt-multi-thread", "time", "sync"]
+optional = true
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
